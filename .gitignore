@@ -9,7 +9,6 @@
 
 # Ignore all logfiles and tempfiles.
 /log/
-/spec/reports/
 /spec/examples.txt
 /tmp/
 

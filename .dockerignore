@@ -1,7 +1,14 @@
+.bundle/
 .docker/
 .git/
 .github/
+.idea/
+coverage/
+log/
+tmp/
+
 .dockerignore
+.DS_Store
 .env*
 .gitignore
 .tool-versions
