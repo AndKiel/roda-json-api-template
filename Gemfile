@@ -4,14 +4,16 @@ source 'https://rubygems.org'
 ruby '2.7.1'
 
 # Base
-gem 'dotenv'
 gem 'pg'
 gem 'puma'
 gem 'rake'
 gem 'roda'
-gem 'rodauth'
 gem 'sequel'
 gem 'sequel_pg'
+
+# Accounts, authentication, authorization
+# gem 'pundit'
+gem 'rodauth'
 
 # Validations
 # gem 'dry-validation'
@@ -23,9 +25,11 @@ gem 'sequel_pg'
 
 # JSON and utilities
 gem 'blueprinter'
+gem 'dotenv'
 gem 'oj'
 
 group :development do
+  gem 'pry-byebug'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rake', require: false
