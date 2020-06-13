@@ -3,10 +3,15 @@
 ENV['RACK_ENV'] ||= 'test'
 abort('Rack environment is not running in test mode!') if ENV['RACK_ENV'] != 'test'
 
-require 'rack/test'
+# Enforce test environment variables
+require 'dotenv'
+Dotenv.overload('.env.test')
 
+# Load the app
 require_relative '../roda_json_api'
 
+# Load additional spec configs
+require 'rack/test'
 Dir['./spec/support/*.rb'].each { |file| require file }
 
 RSpec.configure do |config|
