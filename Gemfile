@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 ruby '2.7.1'
 
 # Base
+gem 'dotenv'
 gem 'pg'
 gem 'puma'
 gem 'roda'

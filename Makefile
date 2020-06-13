@@ -20,7 +20,7 @@ start:
 	docker-compose up app
 
 test:
-	docker-compose run --rm app "bundle exec rspec"
+	docker-compose run -e RACK_ENV=test --rm app "bundle exec rspec"
 
 down:
 	docker-compose down

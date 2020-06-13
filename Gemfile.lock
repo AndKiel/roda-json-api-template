@@ -15,6 +15,7 @@ GEM
       sequel
     diff-lcs (1.3)
     docile (1.3.2)
+    dotenv (2.7.5)
     factory_bot (5.2.0)
       activesupport (>= 4.2.0)
     fuubar (2.5.0)
@@ -95,6 +96,7 @@ PLATFORMS
 
 DEPENDENCIES
   database_cleaner-sequel
+  dotenv
   factory_bot
   fuubar
   pg

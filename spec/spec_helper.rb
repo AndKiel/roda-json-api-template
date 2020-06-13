@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
+ENV['RACK_ENV'] ||= 'test'
+abort('The Rack environment is not running in test mode!') if ENV['RACK_ENV'] != 'test'
+
 require 'rack/test'
+
+require_relative '../roda_json_api'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods, type: :request
