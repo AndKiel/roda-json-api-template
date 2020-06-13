@@ -1,0 +1,10 @@
+.docker/
+.git/
+.github/
+.dockerignore
+.env*
+.gitignore
+.tool-versions
+docker-compose.yml
+Dockerfile
+Makefile
