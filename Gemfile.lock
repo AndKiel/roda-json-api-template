@@ -35,6 +35,7 @@ GEM
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
+    rake (13.0.1)
     regexp_parser (1.7.1)
     rexml (3.2.4)
     roda (3.32.0)
@@ -78,6 +79,8 @@ GEM
       rubocop (>= 0.51.0)
     ruby-progressbar (1.10.1)
     sequel (5.33.0)
+    sequel-annotate (1.5.0)
+      sequel (>= 4)
     sequel_pg (1.13.0)
       pg (>= 0.18.0, != 1.2.0)
       sequel (>= 4.38.0)
@@ -102,6 +105,7 @@ DEPENDENCIES
   pg
   puma
   rack-test
+  rake
   roda
   rodauth
   rspec
@@ -112,6 +116,7 @@ DEPENDENCIES
   rubocop-sequel
   rubocop-thread_safety
   sequel
+  sequel-annotate
   sequel_pg
   simplecov
 

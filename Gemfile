@@ -7,6 +7,7 @@ ruby '2.7.1'
 gem 'dotenv'
 gem 'pg'
 gem 'puma'
+gem 'rake'
 gem 'roda'
 gem 'rodauth'
 gem 'sequel'
@@ -19,6 +20,7 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'rubocop-sequel', require: false
   gem 'rubocop-thread_safety', require: false
+  gem 'sequel-annotate'
 end
 
 group :test do
