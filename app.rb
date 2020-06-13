@@ -4,7 +4,7 @@ Dir['./config/initializers/*.rb'].sort.each { |file| require file }
 
 require 'roda'
 
-class RodaJsonApi < Roda
+class App < Roda
   plugin :public
 
   route do |r|

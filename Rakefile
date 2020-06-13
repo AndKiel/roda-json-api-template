@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'roda_json_api'
+require_relative 'app'
 
 Rake.add_rakelib 'tasks'

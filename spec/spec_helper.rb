@@ -8,7 +8,7 @@ require 'dotenv'
 Dotenv.overload('.env.test')
 
 # Load the app
-require_relative '../roda_json_api'
+require_relative '../app'
 
 # Load additional spec configs
 Dir['./spec/support/*.rb'].sort.each { |file| require file }
