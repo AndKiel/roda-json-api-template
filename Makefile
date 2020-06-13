@@ -27,5 +27,8 @@ start:
 test:
 	docker-compose run -e ENV_FILE=.env.test --rm app "bundle exec rspec"
 
+annotate:
+	docker-compose run --rm app "bundle exec rake annotate"
+
 down:
 	docker-compose down
