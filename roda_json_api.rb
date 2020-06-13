@@ -5,4 +5,9 @@ Dir['./config/initializers/*.rb'].each { |file| require_relative file }
 require 'roda'
 
 class RodaJsonApi < Roda
+  plugin :public
+
+  route do |r|
+    r.public
+  end
 end
