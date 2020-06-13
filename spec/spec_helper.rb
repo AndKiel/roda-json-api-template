@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
-ENV['RACK_ENV'] ||= 'test'
-abort('Rack environment is not running in test mode!') if ENV['RACK_ENV'] != 'test'
-
-# Enforce test environment variables
-require 'dotenv'
-Dotenv.overload('.env.test')
-
 # Load the app
 require_relative '../app'
+
+# Make sure Rspec is running in test environment
+ENV['RACK_ENV'] ||= 'test'
+abort('Rack environment is not running in test mode!') if ENV['RACK_ENV'] != 'test'
 
 # Load additional spec configs
 Dir['./spec/support/*.rb'].sort.each { |file| require file }

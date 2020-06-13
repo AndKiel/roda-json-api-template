@@ -2,4 +2,4 @@
 
 require 'dotenv'
 
-Dotenv.load(ENV.fetch('ENV_FILE') { '.env' })
+Dotenv.load(ENV.fetch('ENV_FILE') { '.env.development' })
