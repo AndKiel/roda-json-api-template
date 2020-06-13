@@ -6,5 +6,5 @@ task :annotate do
   model_files.each { |file| require file }
 
   require 'sequel/annotate'
-  Sequel::Annotate.annotate(model_files)
+  Sequel::Annotate.annotate(model_files, position: :before)
 end
