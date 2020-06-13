@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Dir['./config/initializers/*.rb'].each { |file| require_relative file }
+Dir['./config/initializers/*.rb'].each { |file| require file }
 
 require 'roda'
 
