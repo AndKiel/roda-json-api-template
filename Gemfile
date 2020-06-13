@@ -13,6 +13,18 @@ gem 'rodauth'
 gem 'sequel'
 gem 'sequel_pg'
 
+# Validations
+# gem 'dry-validation'
+
+# File upload and processing
+# gem 'shrine'
+# gem 'image_processing'
+# gem 'mini_magick'
+
+# JSON and utilities
+gem 'blueprinter'
+gem 'oj'
+
 group :development do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
