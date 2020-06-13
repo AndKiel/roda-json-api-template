@@ -11,12 +11,9 @@ Dotenv.overload('.env.test')
 require_relative '../roda_json_api'
 
 # Load additional spec configs
-require 'rack/test'
 Dir['./spec/support/*.rb'].sort.each { |file| require file }
 
 RSpec.configure do |config|
-  config.include Rack::Test::Methods, type: :request
-
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
