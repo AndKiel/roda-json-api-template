@@ -28,5 +28,5 @@
 
 Thanks for contributing! :heart:
 
-[issues]: https://github.com/AndKiel/tournaments-api/issues
-[new-issue]: https://github.com/AndKiel/tournaments-api/issues/new
+[issues]: https://github.com/AndKiel/roda-json-api-template/issues
+[new-issue]: https://github.com/AndKiel/roda-json-api-template/issues/new
