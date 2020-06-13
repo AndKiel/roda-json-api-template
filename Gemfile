@@ -12,6 +12,8 @@ gem 'sequel'
 gem 'sequel_pg'
 
 # Accounts, authentication, authorization
+gem 'bcrypt'
+gem 'jwt'
 # gem 'pundit'
 gem 'rodauth'
 
