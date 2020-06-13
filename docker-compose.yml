@@ -17,8 +17,7 @@ services:
     command: ["bundle install && bundle exec puma"]
     environment:
       BUNDLE_PATH: /bundle_cache
-    env_file:
-      - .env.development
+      ENV_FILE: .env.development
     depends_on:
       - db
     ports:

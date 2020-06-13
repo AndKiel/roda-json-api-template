@@ -2,4 +2,4 @@
 
 require 'dotenv'
 
-Dotenv.load
+Dotenv.load(ENV.fetch('ENV_FILE') { '.env' })
