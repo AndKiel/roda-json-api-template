@@ -7,6 +7,8 @@ require 'rack/test'
 
 require_relative '../roda_json_api'
 
+Dir['./support/*.rb'].each { |file| require_relative file }
+
 RSpec.configure do |config|
   config.include Rack::Test::Methods, type: :request
 
