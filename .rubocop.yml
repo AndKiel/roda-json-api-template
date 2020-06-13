@@ -1,0 +1,53 @@
+require:
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-sequel
+  - rubocop-thread_safety
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  DisplayCopNames: true
+  ExtraDetails: true
+  TargetRubyVersion: 2.7.1
+
+Layout/ClassStructure:
+  Enabled: true
+
+Layout/LineLength:
+  IgnoredPatterns: ['\A\s*#'] # Allow too long comment lines
+  Max: 120
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+Metrics/AbcSize:
+  Exclude:
+    - migrate/*
+
+Metrics/BlockLength:
+  ExcludedMethods: ['configure', 'included','task']
+  Exclude:
+    - spec/**/*
+
+Metrics/MethodLength:
+  Exclude:
+    - migrate/*
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+Style/DateTime:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/ImplicitRuntimeError:
+  Enabled: true
+
+Style/Send:
+  Enabled: true
