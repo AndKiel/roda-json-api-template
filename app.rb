@@ -7,6 +7,8 @@ require 'roda'
 class App < Roda
   plugin :public
   plugin :rodauth, csrf: false, flash: false, json: :only do
+    secret = ENV.fetch('HMAC_SECRET')
+
     enable :active_sessions,
            :audit_logging,
            :change_login,
@@ -22,7 +24,8 @@ class App < Roda
            :reset_password,
            :single_session
 
-    hmac_secret ENV.fetch('HMAC_SECRET')
+    hmac_secret secret
+    jwt_secret secret
   end
 
   route do |r|
