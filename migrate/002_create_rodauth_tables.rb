@@ -16,7 +16,7 @@ Sequel.migration do
       # foreign_key :status_id, :account_statuses, null: false, default: 1
       citext :email, null: false
       constraint :valid_email, email: /^[^,;@ \r\n]+@[^,@; \r\n]+\.[^,@; \r\n]+$/
-      index :email, unique: true#, where: { status_id: [1, 2] }
+      index :email, unique: true # , where: { status_id: [1, 2] }
     end
 
     # Used by the audit logging feature
