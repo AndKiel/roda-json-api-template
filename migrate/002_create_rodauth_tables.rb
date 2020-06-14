@@ -157,8 +157,8 @@ Sequel.migration do
     #   DateTime :code_issued_at, null: false, default: Sequel::CURRENT_TIMESTAMP
     # end
 
-    # user = get(Sequel.lit('current_user')) + '_password'
-    # run "GRANT REFERENCES ON accounts TO #{user}"
+    user = get(Sequel.lit('current_user')) + '_password'
+    run "GRANT REFERENCES ON accounts TO #{user}"
   end
 
   down do

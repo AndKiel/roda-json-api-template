@@ -4,7 +4,7 @@ require 'rodauth/migrations'
 
 Sequel.migration do
   up do
-    # user = get(Sequel.lit('current_user')).sub(/_password\z/, '')
+    user = get(Sequel.lit('current_user')).delete_suffix('_password')
 
     create_table(:account_password_hashes) do
       foreign_key :id, :accounts, primary_key: true, type: :Bignum
@@ -12,13 +12,13 @@ Sequel.migration do
     end
     Rodauth.create_database_authentication_functions(self)
 
-    # run 'REVOKE ALL ON account_password_hashes FROM public'
-    # run 'REVOKE ALL ON FUNCTION rodauth_get_salt(int8) FROM public'
-    # run 'REVOKE ALL ON FUNCTION rodauth_valid_password_hash(int8, text) FROM public'
-    # run "GRANT INSERT, UPDATE, DELETE ON account_password_hashes TO #{user}"
-    # run "GRANT SELECT(id) ON account_password_hashes TO #{user}"
-    # run "GRANT EXECUTE ON FUNCTION rodauth_get_salt(int8) TO #{user}"
-    # run "GRANT EXECUTE ON FUNCTION rodauth_valid_password_hash(int8, text) TO #{user}"
+    run 'REVOKE ALL ON account_password_hashes FROM public'
+    run 'REVOKE ALL ON FUNCTION rodauth_get_salt(int8) FROM public'
+    run 'REVOKE ALL ON FUNCTION rodauth_valid_password_hash(int8, text) FROM public'
+    run "GRANT INSERT, UPDATE, DELETE ON account_password_hashes TO #{user}"
+    run "GRANT SELECT(id) ON account_password_hashes TO #{user}"
+    run "GRANT EXECUTE ON FUNCTION rodauth_get_salt(int8) TO #{user}"
+    run "GRANT EXECUTE ON FUNCTION rodauth_valid_password_hash(int8, text) TO #{user}"
 
     # Used by the disallow_password_reuse feature
     # create_table(:account_previous_password_hashes) do
@@ -41,6 +41,9 @@ Sequel.migration do
   down do
     # Rodauth.drop_database_previous_password_check_functions(self)
     Rodauth.drop_database_authentication_functions(self)
-    drop_table(:account_previous_password_hashes, :account_password_hashes)
+    drop_table(
+      # :account_previous_password_hashes,
+      :account_password_hashes
+    )
   end
 end
