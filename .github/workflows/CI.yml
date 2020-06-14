@@ -14,7 +14,6 @@ jobs:
       db:
         image: postgres:12.3-alpine
         env:
-          POSTGRES_DB: app_test
           POSTGRES_PASSWORD: postgres
         ports:
           - '5432:5432'
@@ -42,9 +41,14 @@ jobs:
           psql -v ON_ERROR_STOP=1 postgres://postgres:postgres@0.0.0.0:5432 <<-EOSQL
               CREATE ROLE app WITH LOGIN PASSWORD 'postgres';
               CREATE ROLE app_password WITH LOGIN PASSWORD 'postgres';
+              CREATE DATABASE app_test OWNER app;
           EOSQL
       - name: Migrate the database
-        run: bundle exec rake migrate
+        run: |
+          DATABASE_URL=postgres://postgres:postgres@0.0.0.0:5432/app_test bundle exec rake migrate[1]
+          bundle exec rake migrate[2]
+          DATABASE_URL=postgres://app_password:postgres@0.0.0.0:5432/app_test bundle exec rake migrate[3]
+          bundle exec rake migrate
       - name: Run Rspec
         run: bundle exec rspec
 env:
