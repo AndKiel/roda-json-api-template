@@ -5,6 +5,10 @@ require 'rack/test'
 RSpec.configure do |config|
   config.include Rack::Test::Methods, type: :request
 
+  config.before do
+    header 'Content-Type', 'application/json'
+  end
+
   def app
     App.app
   end
