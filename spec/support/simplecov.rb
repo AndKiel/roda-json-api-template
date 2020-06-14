@@ -10,6 +10,7 @@ SimpleCov.start do
 
   add_group 'Models', 'models'
   add_group 'Routes', 'routes'
+  add_group 'Serializers', 'serializers'
 
   track_files '**/*.rb'
 
