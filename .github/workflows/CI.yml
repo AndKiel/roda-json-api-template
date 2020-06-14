@@ -37,11 +37,20 @@ jobs:
           bundle install
       - name: Run Rubocop
         run: bundle exec rubocop
+      - name: Setup the database
+        run: |
+          docker run db psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" <<-EOSQL
+                            CREATE ROLE app WITH LOGIN PASSWORD 'postgres';
+                            CREATE ROLE app_password WITH LOGIN PASSWORD 'postgres';
+
+                            CREATE DATABASE app_dev OWNER app;
+                            CREATE DATABASE app_test OWNER app;
+                        EOSQL
       - name: Migrate the database
         run: bundle exec rake migrate
       - name: Run Rspec
         run: bundle exec rspec
 env:
-  DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/app_test
+  DATABASE_URL: postgres://app:postgres@0.0.0.0:5432/app_test
   HMAC_SECRET: 0439b262109093e2354fcf90c7367b65
   RACK_ENV: test
