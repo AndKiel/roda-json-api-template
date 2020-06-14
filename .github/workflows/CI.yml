@@ -18,6 +18,8 @@ jobs:
           POSTGRES_PASSWORD: postgres
         ports:
           - '5432:5432'
+        volumes:
+          - .docker/db-setup.sh:/docker-entrypoint-initdb.d/setup.sh
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
