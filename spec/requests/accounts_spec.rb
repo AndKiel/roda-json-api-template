@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../../models/account'
+
 RSpec.describe 'Accounts', type: :request do
   describe 'POST /create-account' do
     let(:url) { '/create-account' }
