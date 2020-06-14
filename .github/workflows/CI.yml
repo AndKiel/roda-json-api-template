@@ -39,7 +39,7 @@ jobs:
         run: bundle exec rubocop
       - name: Setup the database
         run: |
-          psql -v ON_ERROR_STOP=1 -U postgres -h 0.0.0.0 -p 5432 <<-EOSQL
+          psql -v ON_ERROR_STOP=1 postgres://postgres:postgres@0.0.0.0:5432 <<-EOSQL
               CREATE ROLE app WITH LOGIN PASSWORD 'postgres';
               CREATE ROLE app_password WITH LOGIN PASSWORD 'postgres';
 
