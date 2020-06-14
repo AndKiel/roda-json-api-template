@@ -21,6 +21,8 @@ class App < Roda
            :password_complexity,
            :reset_password,
            :single_session
+
+    hmac_secret ENV.fetch('HMAC_SECRET')
   end
 
   route do |r|
