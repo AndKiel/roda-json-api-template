@@ -41,6 +41,9 @@ Metrics/MethodLength:
 RSpec/MessageSpies:
   EnforcedStyle: receive
 
+RSpec/MultipleExpectations:
+  Max: 2
+
 Style/DateTime:
   Enabled: true
 

@@ -24,7 +24,10 @@ class App < Roda
            :reset_password,
            :single_session
 
+    # :base
     hmac_secret secret
+
+    # :jwt
     jwt_secret secret
   end
 
