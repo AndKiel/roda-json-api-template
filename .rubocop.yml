@@ -31,6 +31,7 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   ExcludedMethods: ['configure', 'included','task']
   Exclude:
+    - migrate/*
     - spec/**/*
 
 Metrics/MethodLength:

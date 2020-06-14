@@ -3,4 +3,3 @@
 require 'sequel'
 
 DB = Sequel.connect(ENV.delete('DATABASE_URL'))
-DB.freeze
