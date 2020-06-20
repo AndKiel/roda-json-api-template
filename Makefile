@@ -23,15 +23,15 @@ migrate-db:
 
 migrate-dev:
 	docker-compose run -e DATABASE_URL=postgres://postgres:postgres@db:5432/app_dev --rm app "bundle exec rake migrate[1]"
-	docker-compose run --rm app "bundle exec rake migrate[2]"
+	docker-compose run -e DATABASE_URL=postgres://app:postgres@db:5432/app_dev --rm app "bundle exec rake migrate[2]"
 	docker-compose run -e DATABASE_URL=postgres://app_password:postgres@db:5432/app_dev --rm app "bundle exec rake migrate[3]"
-	docker-compose run --rm app "bundle exec rake migrate"
+	docker-compose run -e DATABASE_URL=postgres://app:postgres@db:5432/app_dev --rm app "bundle exec rake migrate"
 
 migrate-test:
-	docker-compose run -e DATABASE_URL=postgres://postgres:postgres@db:5432/app_test -e ENV_FILE=.env.test --rm app "bundle exec rake migrate[1]"
-	docker-compose run -e ENV_FILE=.env.test --rm app "bundle exec rake migrate[2]"
-	docker-compose run -e DATABASE_URL=postgres://app_password:postgres@db:5432/app_test -e ENV_FILE=.env.test --rm app "bundle exec rake migrate[3]"
-	docker-compose run -e ENV_FILE=.env.test --rm app "bundle exec rake migrate"
+	docker-compose run -e DATABASE_URL=postgres://postgres:postgres@db:5432/app_test --rm app "bundle exec rake migrate[1]"
+	docker-compose run -e DATABASE_URL=postgres://app:postgres@db:5432/app_test --rm app "bundle exec rake migrate[2]"
+	docker-compose run -e DATABASE_URL=postgres://app_password:postgres@db:5432/app_test --rm app "bundle exec rake migrate[3]"
+	docker-compose run -e DATABASE_URL=postgres://app:postgres@db:5432/app_test --rm app "bundle exec rake migrate"
 
 start:
 	docker-compose up app
