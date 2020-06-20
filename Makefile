@@ -36,6 +36,9 @@ migrate-test:
 start:
 	docker-compose up app
 
+console:
+	docker-compose run --rm app "bundle exec rake console"
+
 test:
 	docker-compose run -e ENV_FILE=.env.test --rm app "bundle exec rspec"
 
