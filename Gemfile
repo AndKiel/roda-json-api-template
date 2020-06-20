@@ -27,12 +27,13 @@ gem 'rodauth'
 # gem 'mini_magick'
 
 # JSON and utilities
+gem 'amazing_print'
 gem 'blueprinter'
 gem 'dotenv'
 gem 'oj'
+gem 'pry-byebug'
 
 group :development do
-  gem 'pry-byebug'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rake', require: false
